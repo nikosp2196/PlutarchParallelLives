@@ -1,0 +1,23 @@
+.table-row-cell {
+    -fx-cell-size: 20px;
+}
+
+.table-view .column-header {
+    -fx-content-display: graphic-only;
+}
+
+
+/*.table-view {*/
+/*    -fx-border-color: white;*/
+/*}*/
+
+/*.table-view .column-header .label {*/
+/*    -fx-background-color: #36454f;*/
+/*    -fx-text-fill: white;*/
+/*}*/
+
+/*.firstColumn {*/
+/*    -fx-text-fill: #36454f;*/
+/*    -fx-border-color: black;*/
+/*}*/
+

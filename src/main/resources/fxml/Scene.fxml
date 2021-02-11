@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="borderPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11-ea+25"
+            fx:controller="daintiness.gui.Controller" style="-fx-background-color: #52c7b8">
+    <top>
+        <VBox>
+<!--MENUBAR-->
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Load from file" onAction="#loadFromFile"/>
+                    <MenuItem text="Load from folder" onAction="#loadFromFolder"/>
+
+                    <SeparatorMenuItem/>
+
+                    <MenuItem fx:id="saveMenuItem" text="Save" onAction="#save"/>
+                    <MenuItem fx:id="saveAsMenuItem" text="SaveAs" onAction="#saveAs"/>
+
+                    <SeparatorMenuItem/>
+
+                    <MenuItem fx:id="clusterData" text="ClusterData" onAction="#showClusteringDialog"/>
+                    <MenuItem fx:id="screenShotMenuItem" text="Take ScreenShot" onAction="#takeScreenShot"/>
+
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#exit"/>
+                </Menu>
+                <Menu text="Project">
+                    <MenuItem fx:id="importProject" text="Import project" onAction="#importProject"/>
+                    <MenuItem fx:id="exportProjectMenuItem" text="Export project" onAction="#exportProject"/>
+                </Menu>
+                <Menu text="PLD">
+                    <MenuItem fx:id="showPLDMenuItem" text="Show PLD" onAction="#showPLD"/>
+
+                    <MenuItem fx:id="closePLDMenuItem" text="Close PLD" onAction="#closePLD"/>
+                </Menu>
+            </MenuBar>
+        </VBox>
+    </top>
+    <center>
+        <VBox fx:id="diagramsVBox">
+            <fx:define>
+                <ToggleGroup fx:id="sortingToggleGroup"/>
+            </fx:define>
+
+            <GridPane fx:id="sortingOptions" disable="true" hgap="10" vgap="5" style="-fx-background-color: #009688; -fx-text-fill: white;">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+<!--            SORTING TYPES-->
+                <Label text="Sorting Type" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-text-fill: white;"/>
+<!--                <Label text="Alphabetical" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
+                <Label text="Activity" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-text-fill: white;"/>
+                <Label text="Life Duration" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-text-fill: white;"/>
+                <Label text="Birth Date" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-text-fill: white;"/>
+
+<!--                DESCENDING SORTING-->
+                <Label text="Descending" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-text-fill: white;"/>
+<!--                <RadioButton toggleGroup="$sortingToggleGroup" selected="true" onAction="#sortByEntityNameD"-->
+<!--                             GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
+                <RadioButton toggleGroup="$sortingToggleGroup" onAction="#sortByActivityD"
+                             GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <RadioButton toggleGroup="$sortingToggleGroup" onAction="#sortByDurationD"
+                             GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <RadioButton toggleGroup="$sortingToggleGroup" onAction="#sortByBirthDateD"
+                             GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+<!--                ASCENDING SORTING-->
+                <Label text="Ascending" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-text-fill: white;"/>
+<!--                <RadioButton toggleGroup="$sortingToggleGroup" selected="true" onAction="#sortByEntityNameA"-->
+<!--                             GridPane.rowIndex="1" GridPane.columnIndex="2"/>-->
+                <RadioButton toggleGroup="$sortingToggleGroup" onAction="#sortByActivityA"
+                             GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <RadioButton toggleGroup="$sortingToggleGroup" onAction="#sortByDurationA"
+                             GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <RadioButton toggleGroup="$sortingToggleGroup" onAction="#sortByBirthDateA"
+                             GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+
+
+            </GridPane>
+<!--             CHART-->
+<!--			<ScrollPane fx:id="scrollPane"/>-->
+
+
+        </VBox>
+    </center>
+    <left>
+        <Pane style="-fx-background-color: #00675b" fx:id="leftPane">
+            <VBox>
+                <Button fx:id="showPLDButton" text="Show PLD" onAction="#showPLD"/>
+                <VBox fx:id="maTypes">
+
+                </VBox>
+            </VBox>
+        </Pane>
+    </left>
+
+</BorderPane>

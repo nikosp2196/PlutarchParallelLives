@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<DialogPane xmlns:fx="http://javafx.com/fxml">
+
+    <content>
+        <GridPane vgap="10" hgap="10">
+<!--            TIME CLUSTERING -->
+            <Label text="Time-clustering parameters" style="-fx-font-weight: bold;"
+                   GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <CheckBox fx:id="timeClusteringCheckBox" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <Label text="Desired number of phases" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="5">
+                <TextField fx:id="numberOfPhasesTextField" prefWidth="40"/>
+            </HBox>
+
+            <Label text="Distance weights" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.rowSpan="2"/>
+
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2" spacing="10">
+                <VBox>
+                    <Label text="Changes"/>
+                    <Label fx:id="changesWeightLabel" text="0.5" textAlignment="CENTER"/>
+                </VBox>
+
+                <Slider fx:id="weightSlider"/>
+                <VBox>
+                    <Label text="Time"/>
+                    <Label fx:id="timeWeightLabel" text="0.5" textAlignment="CENTER"/>
+                </VBox>
+
+            </HBox>
+
+            <Separator GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"/>
+
+
+<!--            ENTITY CLUSTERING-->
+            <Label text="Entity-clustering parameters" style="-fx-font-weight: bold;"
+                   GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <CheckBox fx:id="entityClusteringCheckBox" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+            <Label text="Desired number of entityGroups" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="5">
+                <TextField fx:id="numberOfEntityGroupsTextField" prefWidth="40"/>
+            </HBox>
+
+        </GridPane>
+    </content>
+
+</DialogPane>

@@ -1,0 +1,6 @@
+daintiness\io\input\LoaderTest.class
+daintiness\io\TestUtilities.class
+daintiness\io\input\ProjectImporterTest.class
+daintiness\io\output\TEMExporterTest.class
+daintiness\io\output\ProjectExporterTest.class
+daintiness\clustering\SortingTests.class

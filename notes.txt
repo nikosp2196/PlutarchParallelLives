@@ -1,0 +1,17 @@
+NP::06/12/2020
+
+Deadline first version of GUI --> 10-15/12/2020
+
+PROBLEMS:
+    1) The opencart data are too big for my app. I need to change the tableview prefsize to be able to show them,
+    and there is still the problem that dont fit in the screen
+    2) There are corrupted files in schemaEvo dataset. (lifedetails in tablestats sometimes doesnt map correct to transitions)
+
+
+
+
+TODO: (future/optional/need more discussion)
+    - Update the use cases in the diploma text.
+    - Keep record of the Table Attributes "Birth Attributes + UPDATES"
+
+

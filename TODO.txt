@@ -1,0 +1,37 @@
+Must refactor the experimentation package 
+--------------------------------------------------------------------------------
+
+(1a) to send the validationResults.tsv (xyma@the prj folder) somewhere else
+pvassil@eddie:/mnt/c/Users/pvassil/Downloads/ts-converter/src$ grep -R 'validation' .
+./main/java/daintiness/experiments/ValidationApplication.java:        File validationResultsFile = new File(parentFolder.getPath() + File.separator + "validationResults.tsv");
+./main/java/daintiness/experiments/ValidationApplication.java:        try (FileWriter fw = new FileWriter(validationResultsFile)) {
+./main/resources/data/opencart__opencart/results/transitions.csv:351;1446405882.sql;1448001656.sql;oc_custom_field;Insertion:UpdateTable;validation;VARCHAR(255);false;0;-
+./main/resources/data/opencart__opencart/results/transitions.xml:                <name>validation</name>
+
+==> make a folder in src/main/resources for experimentation
+
+(1B) to take the location of the entire dataset collection from args[]
+ValidationApplication.java has this (Line 38):
+          File folderFile = new File("D:\\Documents\\DOCS\\UOI\\ts-visualizer\\Datasets\\schema_evo");
+  
+  
+(1C) Create a super-package 'clients' to contain
+- gui
+- app
+- experiments
+
+OR
+
+app should contain
+- folderClient
+- gui
+- experiments
+
+
+2. Update correctly all ucls's
+--------------------------------
+... and remove intelliJ
+
+
+3. JavaDoc stuff & Header files
+------------------------------------
