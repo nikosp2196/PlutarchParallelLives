@@ -10,23 +10,26 @@ import daintiness.maincontroller.IMainController;
 import daintiness.maincontroller.MainController;
 
 public class ValidationApplication {
-    private static double minPopulationSize = Integer.MAX_VALUE;
-    private static double maxPopulationSize = Integer.MIN_VALUE;
-
-    private static double minTimelineSize = Integer.MAX_VALUE;
-    private static double maxTimelineSize = Integer.MIN_VALUE;
-
-    private static double minNumberOfCells = Integer.MAX_VALUE;
-    private static double maxNumberOfCells = Integer.MIN_VALUE;
-
-    private static double minNumberOfNonEmptyCells = Integer.MAX_VALUE;
-    private static double maxNumberOfNonEmptyCells = Integer.MIN_VALUE;
-
-    private static double minNumberOfEmptyCells = Integer.MAX_VALUE;
-    private static double maxNumberOfEmptyCells = Integer.MIN_VALUE;
-
-    private static double minConversionTime = Double.MAX_VALUE;
-    private static double maxConversionTime = Double.MIN_VALUE;
+	private static int TIMES_PER_DATASET = 10;
+	
+	
+//    private static double minPopulationSize = Integer.MAX_VALUE;
+//    private static double maxPopulationSize = Integer.MIN_VALUE;
+//
+//    private static double minTimelineSize = Integer.MAX_VALUE;
+//    private static double maxTimelineSize = Integer.MIN_VALUE;
+//
+//    private static double minNumberOfCells = Integer.MAX_VALUE;
+//    private static double maxNumberOfCells = Integer.MIN_VALUE;
+//
+//    private static double minNumberOfNonEmptyCells = Integer.MAX_VALUE;
+//    private static double maxNumberOfNonEmptyCells = Integer.MIN_VALUE;
+//
+//    private static double minNumberOfEmptyCells = Integer.MAX_VALUE;
+//    private static double maxNumberOfEmptyCells = Integer.MIN_VALUE;
+//
+//    private static double minConversionTime = Double.MAX_VALUE;
+//    private static double maxConversionTime = Double.MIN_VALUE;
 
     public static void main(String[] args){
 //        if (args.length != 1) {
@@ -47,22 +50,35 @@ public class ValidationApplication {
         File[] datasets = folderFile.listFiles();
 
         for (File dataset: datasets) {
+        	
             if (!dataset.isDirectory()) {
                 System.out.println("The given folder should contain only schema evo datasets as folders.");
                 System.exit(-1);
             }
             String datasetName = dataset.getName();
-            double startTime = System.nanoTime();
-            mainController.load(dataset);
-            double time = System.nanoTime() - startTime;
+            
+            
+            double time_sum = 0;
+            for (int i = 0; i < TIMES_PER_DATASET + 1; i++) {
+            	double startTime = System.nanoTime();
+                mainController.load(dataset);
+                double time = System.nanoTime() - startTime;
+                
+                if (i != 0) {
+                	time_sum += time;
+                }
+                
+            }
+            
+            
             DatasetValidationInfo datasetInfo = new DatasetValidationInfo(
                     datasetName,
                     mainController.getNumberOfEntities(),
                     mainController.getNumberOfBeats(),
                     mainController.getNumberOfTEMs());
 
-            datasetInfo.setConversionTimeNano(time);
-            updateMinMaxValues(datasetInfo);
+            datasetInfo.setConversionTimeNano(time_sum / TIMES_PER_DATASET);
+//            updateMinMaxValues(datasetInfo);
             results.add(datasetInfo);
         }
 
@@ -89,58 +105,58 @@ public class ValidationApplication {
         }
     }
 
-    private static void updateMinMaxValues(DatasetValidationInfo newInfo) {
-        if (newInfo.getPopulationSize() > maxPopulationSize) {
-            maxPopulationSize = newInfo.getPopulationSize();
-        }
-
-        if (newInfo.getPopulationSize() < minPopulationSize) {
-            minPopulationSize = newInfo.getPopulationSize();
-        }
-
-
-        if (newInfo.getTimelineSize() > maxTimelineSize) {
-            maxTimelineSize = newInfo.getTimelineSize();
-        }
-
-        if (newInfo.getTimelineSize() < minTimelineSize) {
-            minTimelineSize = newInfo.getTimelineSize();
-        }
-
-
-        if (newInfo.getNumberOfCells() > maxNumberOfCells) {
-            maxNumberOfCells = newInfo.getNumberOfCells();
-        }
-
-        if (newInfo.getNumberOfCells() < minNumberOfCells) {
-            minNumberOfCells = newInfo.getNumberOfCells();
-        }
-
-
-        if (newInfo.getNumberOfNonEmptyCells() > maxNumberOfNonEmptyCells) {
-            maxNumberOfNonEmptyCells = newInfo.getNumberOfNonEmptyCells();
-        }
-
-        if (newInfo.getNumberOfNonEmptyCells() < minNumberOfNonEmptyCells) {
-            minNumberOfNonEmptyCells = newInfo.getNumberOfNonEmptyCells();
-        }
-
-
-        if (newInfo.getNumberOfEmptyCells() > maxNumberOfEmptyCells) {
-            maxNumberOfEmptyCells = newInfo.getNumberOfEmptyCells();
-        }
-
-        if (newInfo.getNumberOfEmptyCells() < minNumberOfEmptyCells) {
-            minNumberOfEmptyCells = newInfo.getNumberOfEmptyCells();
-        }
-
-
-        if (newInfo.getConversionTimeNano() > maxConversionTime) {
-            maxConversionTime = newInfo.getConversionTimeNano();
-        }
-
-        if (newInfo.getConversionTimeNano() < minConversionTime) {
-            minConversionTime = newInfo.getConversionTimeNano();
-        }
-    }
+//    private static void updateMinMaxValues(DatasetValidationInfo newInfo) {
+//        if (newInfo.getPopulationSize() > maxPopulationSize) {
+//            maxPopulationSize = newInfo.getPopulationSize();
+//        }
+//
+//        if (newInfo.getPopulationSize() < minPopulationSize) {
+//            minPopulationSize = newInfo.getPopulationSize();
+//        }
+//
+//
+//        if (newInfo.getTimelineSize() > maxTimelineSize) {
+//            maxTimelineSize = newInfo.getTimelineSize();
+//        }
+//
+//        if (newInfo.getTimelineSize() < minTimelineSize) {
+//            minTimelineSize = newInfo.getTimelineSize();
+//        }
+//
+//
+//        if (newInfo.getNumberOfCells() > maxNumberOfCells) {
+//            maxNumberOfCells = newInfo.getNumberOfCells();
+//        }
+//
+//        if (newInfo.getNumberOfCells() < minNumberOfCells) {
+//            minNumberOfCells = newInfo.getNumberOfCells();
+//        }
+//
+//
+//        if (newInfo.getNumberOfNonEmptyCells() > maxNumberOfNonEmptyCells) {
+//            maxNumberOfNonEmptyCells = newInfo.getNumberOfNonEmptyCells();
+//        }
+//
+//        if (newInfo.getNumberOfNonEmptyCells() < minNumberOfNonEmptyCells) {
+//            minNumberOfNonEmptyCells = newInfo.getNumberOfNonEmptyCells();
+//        }
+//
+//
+//        if (newInfo.getNumberOfEmptyCells() > maxNumberOfEmptyCells) {
+//            maxNumberOfEmptyCells = newInfo.getNumberOfEmptyCells();
+//        }
+//
+//        if (newInfo.getNumberOfEmptyCells() < minNumberOfEmptyCells) {
+//            minNumberOfEmptyCells = newInfo.getNumberOfEmptyCells();
+//        }
+//
+//
+//        if (newInfo.getConversionTimeNano() > maxConversionTime) {
+//            maxConversionTime = newInfo.getConversionTimeNano();
+//        }
+//
+//        if (newInfo.getConversionTimeNano() < minConversionTime) {
+//            minConversionTime = newInfo.getConversionTimeNano();
+//        }
+//    }
 }

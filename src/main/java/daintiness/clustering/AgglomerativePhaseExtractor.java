@@ -8,7 +8,7 @@ import daintiness.models.Beat;
 import daintiness.models.TimeEntityMeasurements;
 import daintiness.utilities.Constants;
 
-public class PhaseExtractor {
+public class AgglomerativePhaseExtractor implements IPhaseExtractor{
     private Constants.MeasurementType measurementType = Constants.MeasurementType.RAW_VALUE;
     private Constants.AggregationType aggregationType = Constants.AggregationType.SUM_OF_ALL;
     private final BeatClusteringProfile profile;
@@ -20,7 +20,7 @@ public class PhaseExtractor {
 
 
     // Default constructor;
-    public PhaseExtractor(BeatClusteringProfile profile, IDataHandler dataHandler) {
+    public AgglomerativePhaseExtractor(BeatClusteringProfile profile, IDataHandler dataHandler) {
         this.profile = profile;
         this.dataHandler = dataHandler;
 
@@ -29,7 +29,7 @@ public class PhaseExtractor {
         }
     }
 
-    public PhaseExtractor(Constants.MeasurementType measurementType,
+    public AgglomerativePhaseExtractor(Constants.MeasurementType measurementType,
                           Constants.AggregationType aggregationType,
                           BeatClusteringProfile profile,
                           DataHandler dataHandler) {
@@ -39,7 +39,7 @@ public class PhaseExtractor {
         this.dataHandler = dataHandler;
     }
 
-    public void clusterData() {
+    public List<Phase> clusterData() {
         // 1. Create a phase for every Beat
         init();
 
@@ -75,6 +75,8 @@ public class PhaseExtractor {
             phase.setPhaseId(i);
             i++;
         }
+        
+        return phaseList;
     }
 
     private void mergePhases(int minIndex) {
@@ -154,10 +156,6 @@ public class PhaseExtractor {
             return Math.pow(firstMeasurement - secondMeasurement, 2);
         }).sum();
         return Math.sqrt(sum);
-    }
-
-    public List<Phase> getPhaseList() {
-        return phaseList;
     }
 
 }

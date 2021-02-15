@@ -10,7 +10,7 @@ import daintiness.models.Entity;
 import daintiness.models.TimeEntityMeasurements;
 import daintiness.utilities.Constants;
 
-public class EntityGroupExtractor {
+public class EntityGroupExtractor implements IEntityGroupExtractor{
     private Constants.MeasurementType measurementType = Constants.MeasurementType.RAW_VALUE;
     private Constants.AggregationType aggregationType = Constants.AggregationType.SUM_OF_ALL;
     private final EntityClusteringProfile profile;
@@ -39,7 +39,7 @@ public class EntityGroupExtractor {
         this.dataHandler = dataHandler;
     }
 
-    public void clusterData() {
+    public List<EntityGroup> clusterData() {
         // 1. Create an EntityGroup for every Entity
         init();
 
@@ -82,6 +82,8 @@ public class EntityGroupExtractor {
         }
 
         renameEntityGroups();
+        
+        return entityGroupList;
     }
 
     private void renameEntityGroups() {
@@ -178,7 +180,4 @@ public class EntityGroupExtractor {
         }
     }
 
-    public List<EntityGroup> getEntityGroupList() {
-        return entityGroupList;
-    }
 }

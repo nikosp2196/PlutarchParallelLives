@@ -125,10 +125,10 @@ public class ClusteringHandler implements IClusteringHandler {
 
 
     private void generatePhases(BeatClusteringProfile profile) {
-        PhaseExtractor phaseExtractor = new PhaseExtractor(profile, dataHandler);
-        phaseExtractor.clusterData();
+    	PhaseExtractorFactory factory = new PhaseExtractorFactory();
+    	IPhaseExtractor phaseExtractor = factory.getPhaseExtractor("AGGLOMERATIVE", profile, dataHandler);
 
-        phases = phaseExtractor.getPhaseList();
+        phases = phaseExtractor.clusterData();
     }
 
     @Override
@@ -179,9 +179,8 @@ public class ClusteringHandler implements IClusteringHandler {
 
     private void generateEntityGroups(EntityClusteringProfile profile) {
         EntityGroupExtractor entityGroupExtractor = new EntityGroupExtractor(profile, dataHandler);
-        entityGroupExtractor.clusterData();
-
-        entityGroups = entityGroupExtractor.getEntityGroupList();
+        
+        entityGroups = entityGroupExtractor.clusterData();
     }
 
 

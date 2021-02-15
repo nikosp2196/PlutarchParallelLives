@@ -25,7 +25,6 @@ module-info.class
 daintiness\io\FileHandler.class
 daintiness\gui\details\EntityGroupDetails.class
 daintiness\utilities\Constants$MeasurementType.class
-daintiness\clustering\PhaseExtractor.class
 daintiness\models\measurement\MeasurementFactory.class
 daintiness\models\Beat.class
 daintiness\clustering\EntityGroup.class

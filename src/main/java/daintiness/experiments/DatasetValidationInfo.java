@@ -17,8 +17,8 @@ public class DatasetValidationInfo {
         this.populationSize = populationSize;
         this.timelineSize = timelineSize;
         this.numberOfCells = populationSize * timelineSize;
-        this.numberOfNonEmptyCells = numberOfTEMs / numberOfCells;
-        this.numberOfEmptyCells = 1 - numberOfNonEmptyCells;
+        this.numberOfNonEmptyCells = numberOfTEMs;
+        this.numberOfEmptyCells = numberOfCells - numberOfNonEmptyCells;
     }
 
     public void setConversionTimeNano(double conversionTimeNano) {

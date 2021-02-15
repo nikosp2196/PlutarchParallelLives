@@ -382,6 +382,7 @@ public class Controller {
     public void showClusteringDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(borderPane.getScene().getWindow());
+        dialog.setTitle("Set clustering profile");
 
 
         FXMLLoader fxmlLoader = new FXMLLoader();
