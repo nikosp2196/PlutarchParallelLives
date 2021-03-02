@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: daintiness.io.output.ProjectExporterTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 s - in daintiness.io.output.ProjectExporterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 s - in daintiness.io.output.ProjectExporterTest

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="daintiness.clustering.SortingTests" time="0.434" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="daintiness.clustering.SortingTests" time="0.382" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.1\bin"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\pvassil\AppData\Local\Temp\surefire929643327667176473 2021-02-11T12-41-56_569-jvmRun1 surefire18364842095079611290tmp surefire_05805542526435337995tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\pvassil\AppData\Local\Temp\surefire8033631787937972358 2021-03-02T12-46-21_134-jvmRun1 surefire5837377828816654322tmp surefire_03921173621205971016tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Users\pvassil\RESEARCH\Github\PlutarchParallelLives\target\test-classes;C:\Users\pvassil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\pvassil\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\pvassil\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\pvassil\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\pvassil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\pvassil\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\pvassil\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-fxml\11-ea+25\javafx-fxml-11-ea+25.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-base\11-ea+25\javafx-base-11-ea+25.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-swing\11-ea+25\javafx-swing-11-ea+25.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-controls\11-ea+25\javafx-controls-11-ea+25.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-graphics\11-ea+25\javafx-graphics-11-ea+25.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-media\11-ea+25\javafx-media-11-ea+25.jar;C:\Users\pvassil\.m2\repository\org\openjfx\javafx-media\11-ea+25\javafx-media-11-ea+25-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -51,17 +51,17 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.language.format" value="el"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-15.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Python38-32\Scripts\;C:\Program Files (x86)\Python38-32\;C:\Program Files (x86)\Python36-32\Scripts\;C:\Program Files (x86)\Python36-32\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files (x86)\Pandoc\;C:\WINDOWS\System32\OpenSSH\;C:\spark-2.3.1-bin-hadoop2.7\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Gemalto\Classic Client\BIN;C:\Program Files (x86)\Gemalto\Classic Client\BIN;C:\Program Files\Java\jdk-14.0.2;C:\Program Files\Java\jdk-14.0.2\bin;C:\Program Files\Maven\apache-maven-3.6.3\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pvassil\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-15.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Python38-32\Scripts\;C:\Program Files (x86)\Python38-32\;C:\Program Files (x86)\Python36-32\Scripts\;C:\Program Files (x86)\Python36-32\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files (x86)\Pandoc\;C:\WINDOWS\System32\OpenSSH\;C:\spark-2.3.1-bin-hadoop2.7\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Gemalto\Classic Client\BIN;C:\Program Files (x86)\Gemalto\Classic Client\BIN;C:\Program Files\Java\jdk-14.0.2;C:\Program Files\Java\jdk-14.0.2\bin;C:\Program Files\Maven\apache-maven-3.6.3\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pvassil\AppData\Local\Microsoft\WindowsApps;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="java.vm.version" value="15.0.1+9-18"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="sortingByDescendingActivityTest" classname="daintiness.clustering.SortingTests" time="0.207"/>
+  <testcase name="sortingByDescendingActivityTest" classname="daintiness.clustering.SortingTests" time="0.156"/>
   <testcase name="sortingByDescendingDeathTest" classname="daintiness.clustering.SortingTests" time="0.043"/>
-  <testcase name="sortingByAscendingLifeDurationTest" classname="daintiness.clustering.SortingTests" time="0.04"/>
+  <testcase name="sortingByAscendingLifeDurationTest" classname="daintiness.clustering.SortingTests" time="0.043"/>
   <testcase name="sortingByDescendingLifeDurationTest" classname="daintiness.clustering.SortingTests" time="0.031"/>
-  <testcase name="sortingByAscendingBirthTest" classname="daintiness.clustering.SortingTests" time="0.028"/>
-  <testcase name="sortingByAscendingActivityTest" classname="daintiness.clustering.SortingTests" time="0.032"/>
+  <testcase name="sortingByAscendingBirthTest" classname="daintiness.clustering.SortingTests" time="0.029"/>
+  <testcase name="sortingByAscendingActivityTest" classname="daintiness.clustering.SortingTests" time="0.029"/>
 </testsuite>

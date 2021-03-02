@@ -18,6 +18,7 @@ daintiness\experiments\ValidationApplication.class
 daintiness\maincontroller\MainControllerFactory.class
 daintiness\utilities\Constants$FileType.class
 daintiness\gui\jtabledemo\PLDJTable.class
+daintiness\clustering\PhaseExtractorFactory.class
 daintiness\data\DataHandler.class
 daintiness\data\IDataHandler.class
 daintiness\io\input\LoaderFactory.class
@@ -31,6 +32,7 @@ daintiness\clustering\EntityGroup.class
 daintiness\io\input\SimpleLoader.class
 daintiness\models\Entity.class
 daintiness\clustering\measurements\GroupMeasurements.class
+daintiness\clustering\EntityGroupExtractorFactory.class
 daintiness\models\measurement\EmptyIMeasurement.class
 daintiness\clustering\measurements\ChartEntityGroupMeasurementsComparator$1.class
 daintiness\io\FileHandlerFactory.class
@@ -51,7 +53,9 @@ daintiness\clustering\EntityClusteringProfile.class
 daintiness\gui\Controller$GuiCondition.class
 daintiness\io\input\ILoader.class
 daintiness\clustering\ClusteringProfile.class
+daintiness\clustering\AgglomerativePhaseExtractor.class
 daintiness\models\measurement\EmptyIMeasurement$1.class
+daintiness\clustering\IEntityGroupExtractor.class
 daintiness\clustering\ClusteringHandler.class
 daintiness\io\input\schemaevo\SchemaEvoLoader.class
 daintiness\gui\Controller$1.class
@@ -61,6 +65,7 @@ daintiness\models\measurement\Measurement.class
 daintiness\clustering\BeatClusteringProfile.class
 daintiness\utilities\Constants$SelectedCellType.class
 daintiness\gui\tableview\PLDiagram$1.class
+daintiness\clustering\IPhaseExtractor.class
 daintiness\app\IRClient.class
 daintiness\clustering\EntityGroupExtractor.class
 daintiness\clustering\IClusteringHandler.class
