@@ -1,4 +1,0 @@
---patch-module
-PloutarchParallelLives=_
---add-reads
-PloutarchParallelLives=ALL-UNNAMED
