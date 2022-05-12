@@ -22,15 +22,21 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
+import javax.swing.JTable;
 
 import daintiness.clustering.ClusteringProfile;
+import daintiness.clustering.EntityGroup;
+import daintiness.clustering.measurements.ChartGroupPhaseMeasurement;
 import daintiness.gui.details.EntityGroupDetails;
 import daintiness.gui.details.PhaseDetails;
 import daintiness.gui.tableview.PLDiagram;
 import daintiness.maincontroller.IMainController;
 import daintiness.maincontroller.MainControllerFactory;
+import daintiness.models.measurement.IMeasurement;
 import daintiness.utilities.Constants;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -129,7 +135,11 @@ public class Controller {
                     System.out.println(newValue);
             }
         };
+        
+        
+        
 
+        
         Button closePLDButton = new Button();
         closePLDButton.setText("X");
         closePLDButton.setStyle("-fx-font-weight: bold; -fx-border-color: black; -fx-background-color: #c62828;");
@@ -212,6 +222,38 @@ public class Controller {
         }
     }
 
+    
+    private void createJTableMouseListener() {
+    	pld.getJTable().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(final MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                	final JTable target = (JTable)e.getSource();
+                    final int row = target.getSelectedRow();
+                    final int column = target.getSelectedColumn();
+                    // Cast to ur Object type
+                	final ChartGroupPhaseMeasurement cell = (ChartGroupPhaseMeasurement)target.getValueAt(row, column);
+
+                    Platform.runLater(new Runnable(){
+                    	@Override public void run() {
+                    		if (maTypes.getChildren().size() > maTypesSizeWithoutDetails && column == 0) {
+                                maTypes.getChildren().remove(maTypesSizeWithoutDetails);
+                            }
+                    		
+                    		if(column == 0) {
+                    			entityGroupDetailsScrollPane = new EntityGroupDetails(cell.getEntityGroup());
+                                maTypes.getChildren().add(entityGroupDetailsScrollPane);
+                    		}
+                    		
+
+                        }
+                	});
+                	
+                }
+            }
+        });
+    }
+    
     private void generateChartData(ClusteringProfile profile) {
 
 
@@ -246,6 +288,12 @@ public class Controller {
         selectionHasChanged.addListener(selectionHasChangedListener);
         initializeMATypes();
 
+        
+        createJTableMouseListener();
+    	
+        
+        
+        
         enableButtons(GuiCondition.DATA_NO_PLD);
     }
 
@@ -283,7 +331,22 @@ public class Controller {
     }
 
 
-
+    
+    private void showPLDAfterSettingsChange() {
+    	diagramsVBox.getChildren().remove(pld);
+        diagramsVBox.getChildren().remove(pldButtonBar);
+        if (maTypes.getChildren().size() > maTypesSizeWithoutDetails) {
+            maTypes.getChildren().remove(maTypesSizeWithoutDetails);
+        }
+        pld = new PLDiagram(
+                mainController.getChartData(),
+                mainController.getPhases());
+        showPLD();
+        
+        createJTableMouseListener();
+        
+    }
+    
     private void initializeMATypes() {
         if (maTypes.getChildren().size() != 0) {
             maTypes.getChildren().clear();
@@ -335,46 +398,54 @@ public class Controller {
         }
         Button confirmButton = new Button("confirm");
         confirmButton.setPadding(new Insets(10,100,10,100));
-        confirmButton.setOnAction(event -> mainController.generateChartDataOfType(measurementType, aggregationType));
+        confirmButton.setOnAction(event -> {
+        	mainController.generateChartDataOfType(measurementType, aggregationType);
+        	showPLDAfterSettingsChange();
+        });
         maTypes.getChildren().add(confirmButton);
         maTypesSizeWithoutDetails = maTypes.getChildren().size();
+        
     }
-
 
     @FXML
     public void sortByActivityD() {
         mainController.sortChartData(Constants.SortingType.ACTIVITY_DESCENDING);
+        showPLDAfterSettingsChange();
     }
 
 
     @FXML
     public void sortByBirthDateD() {
         mainController.sortChartData(Constants.SortingType.BIRTH_DESCENDING);
+        showPLDAfterSettingsChange();
     }
 
 
     @FXML
     public void sortByDurationD() {
         mainController.sortChartData(Constants.SortingType.LIFE_DURATION_DESCENDING);
+        showPLDAfterSettingsChange();
     }
 
 
     @FXML
     public void sortByActivityA() {
         mainController.sortChartData(Constants.SortingType.ACTIVITY_ASCENDING);
-
+        showPLDAfterSettingsChange();
     }
 
 
     @FXML
     public void sortByBirthDateA() {
         mainController.sortChartData(Constants.SortingType.BIRTH_ASCENDING);
+        showPLDAfterSettingsChange();
     }
 
 
     @FXML
     public void sortByDurationA() {
         mainController.sortChartData(Constants.SortingType.LIFE_DURATION_ASCENDING);
+        showPLDAfterSettingsChange();
     }
 
 
@@ -418,7 +489,8 @@ public class Controller {
         File selectedFile = chooser.showSaveDialog(borderPane.getScene().getWindow());
 
         if (selectedFile != null) {
-            WritableImage img = pld.getTableView().snapshot(null, null);
+            //WritableImage img = pld.getTableView().snapshot(null, null);
+        	WritableImage img = pld.getJTableNode().snapshot(null, null);
             try {
                 BufferedImage bufferedImage = SwingFXUtils.fromFXImage(img, null);
                 ImageIO.write(bufferedImage, "png", selectedFile);
