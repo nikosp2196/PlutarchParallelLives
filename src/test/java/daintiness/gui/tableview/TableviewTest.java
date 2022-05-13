@@ -61,7 +61,7 @@ public class TableviewTest {
 
 		for (ChartGroupPhaseMeasurement tab : observableList) {
 			
-			expectedEntities = tab.getEntityGroup().getGroupComponents();
+			expectedEntities.add(tab.getEntityGroup().getGroupComponents().get(0));
 			String entityName = tab.getEntityGroup().getGroupComponents().get(0).getEntityName();
 			List<Double> expectedMeasurements = new ArrayList<Double>();
 			
@@ -80,13 +80,8 @@ public class TableviewTest {
 		
 		List<Beat> beatList = new  ArrayList<Beat>(); 
 		for(Phase ps: phases) {
-			beatList.add(ps.getPhaseComponents().get(0));
-			
+			beatList.add(ps.getPhaseComponents().get(0));			
 		}
-		
-		
-		
-		
 
 		//TimeLineTest
 		List<Beat> actualTimeLine = dataHandler.getTimeline();
@@ -99,6 +94,7 @@ public class TableviewTest {
         
         //EntitiesTest
         List<Entity> actualEntities = dataHandler.getPopulation();
+        
         Assumptions.assumeTrue(expectedEntities.size() == actualEntities.size());
 
         for(int i = 0; i < actualEntities.size(); i++){
